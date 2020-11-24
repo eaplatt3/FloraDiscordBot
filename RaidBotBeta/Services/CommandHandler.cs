@@ -14,9 +14,9 @@ namespace RaidBotBeta.Services
     class CommandHandler
     {
         //Setup Field to be set later in the constructor
-        private readonly IConfiguration config;
-        private readonly CommandService commands;
-        private readonly DiscordSocketClient client;
+        private readonly IConfiguration _config;
+        private readonly CommandService _commands;
+        private readonly DiscordSocketClient _client;
         private readonly IServiceProvider _services;
 
         public CommandHandler(IServiceProvider services)
@@ -25,22 +25,22 @@ namespace RaidBotBeta.Services
             //Since we passed the servicesin, we can use GetRequiredService
             //To pass them into the fields set earlier
 
-            config = services.GetRequiredService<IConfiguration>();
-            commands = services.GetRequiredService<CommandService>();
-            client = services.GetRequiredService<DiscordSocketClient>();
+            _config = services.GetRequiredService<IConfiguration>();
+            _commands = services.GetRequiredService<CommandService>();
+            _client = services.GetRequiredService<DiscordSocketClient>();
             _services = services;
 
             //Take action when we excute a command
-            commands.CommandExecuted += CommandExcutedAsync;
+            _commands.CommandExecuted += CommandExecuteAsync;
 
             //Take action when we receive a message (so we can process it, and see if it is a vaild command)
-            client.MessageReceived += MessageReceivedAsync;
+            _client.MessageReceived += MessageReceivedAsync;
         }
 
         public async Task InitializeAysnc()
         {
             //Register modules that are public and inherit ModuleBase<T>
-            await commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
+            await _commands.AddModulesAsync(Assembly.GetEntryAssembly(), _services);
         }
 
         //This method is where the magic happens, and takes actions upon receiving messages
@@ -61,18 +61,18 @@ namespace RaidBotBeta.Services
             var argPos = 0;
 
             //Gets the prefix from the config file
-            char prefix = Char.Parse(config["Prefix"]);
+            char prefix = Char.Parse(_config["Prefix"]);
 
             //Determine if the message has a vaild prefix, and adjust argPos based on prefix
-            if(!(message.HasMentionPrefix(client.CurrentUser, ref argPos) || message.HasCharPrefix(prefix, ref argPos)))
+            if(!(message.HasMentionPrefix(_client.CurrentUser, ref argPos) || message.HasCharPrefix(prefix, ref argPos)))
             {
                 return;
             }
 
-            var context = new SocketCommandContext(client, message);
+            var context = new SocketCommandContext(_client, message);
 
             //Excute command if one is found that matches
-            await commands.ExecuteAsync(context, argPos, _services);
+            await _commands.ExecuteAsync(context, argPos, _services);
         }
 
         public async Task CommandExecuteAsync(Optional<CommandInfo> command, ICommandContext context, IResult result)

@@ -13,7 +13,7 @@ namespace RaidBotBeta.Modules
 {
     //For commands to be available, and have to Contect passed
     //To them, we must inherit ModuleBase
-    class ExampleCommands : ModuleBase
+    public class ExampleCommands : ModuleBase
     {
         [Command("hello")]
         public async Task HelloCommand()
@@ -25,7 +25,7 @@ namespace RaidBotBeta.Modules
             var user = Context.User;
 
             //Build out the reply
-            sb.AppendLine($"You are -> []");
+            sb.AppendLine($"You are -> [{user.Username}]");
             sb.AppendLine("I must now say, World!");
 
             //Send simple string replay
@@ -58,7 +58,7 @@ namespace RaidBotBeta.Modules
 
             //We can get lots of information from the Context that is passed into the commands
             //Setting up the preface with the user's name and a coma
-            sb.AppendLine($",");
+            sb.AppendLine($"{Context.User.Username},");
             sb.AppendLine();
 
             //Let's make sure the supplied question isn't null
@@ -76,9 +76,9 @@ namespace RaidBotBeta.Modules
                 var answer = replies[new Random().Next(replies.Count - 1)];
 
                 //Build out our reply with the StringBuilder
-                sb.AppendLine($"You asked: [****]...");
+                sb.AppendLine($"You asked: **{args}**...");
                 sb.AppendLine();
-                sb.AppendLine($"...your answer is [****]");
+                sb.AppendLine($"...your answer is **{answer}**");
 
                 //Let's switch out the reply & change the color based on it
                 switch (answer)

@@ -6,6 +6,8 @@ using Discord.WebSocket;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.Json;
+using Microsoft.Extensions.DependencyInjection;
+using RaidBotBeta.Services;
 
 
 /// <summary>
@@ -19,8 +21,8 @@ namespace RaidBotBeta
     class Program
     {
         //Setup our fields we assign later
-        private readonly DiscordSocketClient client;
-        private readonly IConfiguration config;
+        private DiscordSocketClient _client;
+        private readonly IConfiguration _config;
 
         static void Main(string[] args)
         {
@@ -29,7 +31,7 @@ namespace RaidBotBeta
 
         public Program()
         {
-            client = new DiscordSocketClient();
+           /* client = new DiscordSocketClient();
 
             //Hook into log event and write it out to the console
             client.Log += LogAsync;
@@ -38,23 +40,43 @@ namespace RaidBotBeta
             client.Ready += ReadyAsync;
 
             //hook into the message received event, this is how we handle the hello world example
-            client.MessageReceived += MessageReceivedAsync;
+            client.MessageReceived += MessageReceivedAsync;*/
 
             //create the configuration
-            var builder = new ConfigurationBuilder()
+            var _builder = new ConfigurationBuilder()
                 .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile(path: "config.json");
-            config = builder.Build();
+
+            //Build the configuration and assign to _config
+            _config = _builder.Build();
         }
 
         public async Task MainAsync()
         {
-            //This is where we get the token value from the configuration file
-            await client.LoginAsync(TokenType.Bot, config["Token"]);
-            await client.StartAsync();
+            //Call ConfigurationServices to create the ServiceCollection/Provider for passing around the services
+            using (var services = ConfigureServices())
+            {
+                //Get the client and assign to client
+                //You get the services via GetRequiredService<T>
+                var client = services.GetRequiredService<DiscordSocketClient>();
+                _client = client;
 
-            //Block the Program until its is Closed
-            await Task.Delay(-1);
+                //Setup Loggin and the ready event
+                client.Log += LogAsync;
+                client.Ready += ReadyAsync;
+                services.GetRequiredService<CommandService>().Log += LogAsync;
+
+                //This is where we get the token value from the configuration file
+                await client.LoginAsync(TokenType.Bot, _config["Token"]);
+                await client.StartAsync();
+
+                //We get the CommandHnadler class here and call the InitializeAsync
+                //Method to start things up for the CommandHandler service
+                await services.GetRequiredService<CommandHandler>().InitializeAysnc();
+
+                //Block the Program until its is Closed
+                await Task.Delay(-1);
+            }           
         }
 
         //Method to Print Log Data to the console
@@ -66,22 +88,24 @@ namespace RaidBotBeta
 
         private Task ReadyAsync()
         {
-            Console.WriteLine($"Connected as -> [{client.CurrentUser}]:)");
+            Console.WriteLine($"Connected as -> {_client.CurrentUser} :)");
             return Task.CompletedTask;
         }
 
-        private async Task MessageReceivedAsync(SocketMessage message)
+        //This Method handles the ServiceCollection creation/configuration 
+        //Builds out the service provider we can call on later
+        private ServiceProvider ConfigureServices()
         {
-            //This ensures we dont't loop things by responding to Ourselves (as the bot)
-            if(message.Author.Id == client.CurrentUser.Id)
-            {
-                return;
-            }
-
-            if(message.Content == ".hello")
-            {
-                await message.Channel.SendMessageAsync("world!");
-            }
+            //This returns a ServiceProvider that is used later to call for those services
+            //We can add types we have access to here, hence adding the new using statement:
+            //using RaidBotBeta.Services;
+            //The config we build is also added, which comes in handy for setting the command prefix!
+            return new ServiceCollection()
+                .AddSingleton(_config)
+                .AddSingleton<DiscordSocketClient>()
+                .AddSingleton<CommandService>()
+                .AddSingleton<CommandHandler>()
+                .BuildServiceProvider();
         }
     }
 }

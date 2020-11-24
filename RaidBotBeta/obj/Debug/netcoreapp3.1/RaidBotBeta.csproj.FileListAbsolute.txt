@@ -29,3 +29,5 @@ C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\Rai
 C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\RaidBotBeta.dll
 C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\RaidBotBeta.pdb
 C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\RaidBotBeta.genruntimeconfig.cache
+C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
