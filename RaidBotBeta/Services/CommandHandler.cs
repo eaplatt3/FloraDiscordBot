@@ -68,6 +68,31 @@ namespace RaidBotBeta.Services
             {
                 return;
             }
+
+            var context = new SocketCommandContext(client, message);
+
+            //Excute command if one is found that matches
+            await commands.ExecuteAsync(context, argPos, _services);
+        }
+
+        public async Task CommandExecuteAsync(Optional<CommandInfo> command, ICommandContext context, IResult result)
+        {
+            //If a command isn't found, log that info to the console and exit this method
+            if (!command.IsSpecified)
+            {
+                System.Console.WriteLine($"Command failed to execute for [] <-> []!");
+                return;
+            }
+
+            //Log success to the console and exit this method
+            if (result.IsSuccess)
+            {
+                System.Console.WriteLine($"Command [] excuted for -> []");
+                return;
+            }
+
+            //Failure scenario, let's let the user know
+            await context.Channel.SendMessageAsync($"Sorry, ... Something went wrong -> []!");
         }
 
 

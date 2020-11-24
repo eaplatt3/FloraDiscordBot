@@ -18,6 +18,7 @@ namespace RaidBotBeta
 {
     class Program
     {
+        //Setup our fields we assign later
         private readonly DiscordSocketClient client;
         private readonly IConfiguration config;
 
@@ -40,7 +41,8 @@ namespace RaidBotBeta
             client.MessageReceived += MessageReceivedAsync;
 
             //create the configuration
-            var builder = new ConfigurationBuilder().SetBasePath(AppContext.BaseDirectory)
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(AppContext.BaseDirectory)
                 .AddJsonFile(path: "config.json");
             config = builder.Build();
         }
