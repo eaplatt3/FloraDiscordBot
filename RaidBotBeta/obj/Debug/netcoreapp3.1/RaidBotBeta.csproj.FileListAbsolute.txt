@@ -1,0 +1,4 @@
+C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\RaidBotBeta.csprojAssemblyReference.cache
+C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\RaidBotBeta.AssemblyInfoInputs.cache
+C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\RaidBotBeta.AssemblyInfo.cs
+C:\Users\EPlatt\source\repos\RaidBotBeta\RaidBotBeta\obj\Debug\netcoreapp3.1\RaidBotBeta.csproj.CoreCompileInputs.cache
