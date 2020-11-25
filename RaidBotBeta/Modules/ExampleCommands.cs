@@ -5,9 +5,11 @@ using Discord.Commands;
 using System;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 using System.Threading.Tasks;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace RaidBotBeta.Modules
 {
@@ -53,7 +55,7 @@ namespace RaidBotBeta.Modules
             replies.Add("hazzzzy.......");
 
             //Time to add some option to the embed(Like Color & Title)
-            embed.WithColor(new Color(0, 255, 0));
+            embed.WithColor(new Discord.Color(0, 255, 0));
             embed.Title = "Welcome to the 8-Ball!";
 
             //We can get lots of information from the Context that is passed into the commands
@@ -85,22 +87,22 @@ namespace RaidBotBeta.Modules
                 {
                     case "yes":
                         {
-                            embed.WithColor(new Color(0, 255, 0));
+                            embed.WithColor(new Discord.Color(0, 255, 0));
                             break;
                         }
                     case "no":
                         {
-                            embed.WithColor(new Color(255, 0, 0));
+                            embed.WithColor(new Discord.Color(255, 0, 0));
                             break;
                         }
                     case "maybe":
                         {
-                            embed.WithColor(new Color(255, 255, 0));
+                            embed.WithColor(new Discord.Color(255, 255, 0));
                             break;
                         }
                     case "hazzzzy.......":
                         {
-                            embed.WithColor(new Color(255, 0, 255));
+                            embed.WithColor(new Discord.Color(255, 0, 255));
                             break;
                         }
                 }
@@ -114,5 +116,35 @@ namespace RaidBotBeta.Modules
             //This will reply with the embed
             await ReplyAsync(null, false, embed.Build());
         }
+
+        [Command("raid")]
+        public async Task DisplayPic(string raid, string date)
+        {        
+            DateTime dateTime = DateTime.Parse(date);
+            string day = dateTime.ToString("ddd");
+
+            //Time to add some option to the embed(Like Color & Title)
+            //embed.WithColor(new Discord.Color(0, 255, 0));
+           // embed.Title = "Raid Test";
+             if (raid == "GoS")
+            {
+                var filename = "Galaxy.jpg";
+
+                //Lets use an embed for this one!
+                var embed = new EmbedBuilder().AddField("Garden of Salvation", "Test")
+                {
+                    
+                    ImageUrl = $"attachment://{filename}"
+                }.Build();
+               // embed.AddField("Garden of Salvation", "Test").WithImageUrl("C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\bin\\Debug\\netcoreapp3.1\\Pics\\Galaxy.jpg")
+               //     .Build();
+                await Context.Channel.SendFileAsync(filename, embed: embed);
+                //await Context.Channel.SendFileAsync("C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\bin\\Debug\\netcoreapp3.1\\Pics\\696274.jpg", "Crown of Sorrows");
+               // await ReplyAsync(day);
+            }
+           
+
+        }        
+        
     }
 }

@@ -92,7 +92,7 @@ namespace RaidBotBeta.Services
             }
 
             //Failure scenario, let's let the user know
-            await context.Channel.SendMessageAsync($"Sorry, ... Something went wrong -> []!");
+            await context.Channel.SendMessageAsync($"Sorry, ... Something went wrong!");
         }
 
 
