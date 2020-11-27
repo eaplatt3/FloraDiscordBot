@@ -17,6 +17,15 @@ namespace RaidBotBeta.Modules
     //To them, we must inherit ModuleBase
     public class ExampleCommands : ModuleBase
     {
+        async Task MessageDelete(SocketMessage s)
+        {
+            var msg = s as SocketUserMessage;
+            if (msg == null || !msg.Content.StartsWith("!") || msg.Author.IsBot)
+                return;
+            if (msg.Channel is SocketGuildChannel guildChannel)
+                await Context.Message.DeleteAsync();
+        }
+
         [Command("hello")]
         public async Task HelloCommand()
         {
@@ -117,33 +126,406 @@ namespace RaidBotBeta.Modules
             await ReplyAsync(null, false, embed.Build());
         }
 
+        
+
         [Command("raid")]
-        public async Task DisplayPic(string raid, string date)
-        {        
+        public async Task raidSignUp(string raid, string date, string time, string ampm, string description, string description2 = " ")
+        {
+
+            IUserMessage SentEmbed;
+
+            Emote interested = Emote.Parse("<:Interested:721034001724342423>");
+            Emote maybe = Emote.Parse("<:Maybe:721034001497718797>");
+            Emote nope = Emote.Parse("<:Nope:721034001674010684>");
+            Emote reserve = Emote.Parse("<:Reserve:721034001460101182>");
+
+            Emote[] myReactions = {interested, maybe, nope, reserve};
+
+           //Emote myReaction = Emote.Parse("<:Interested:721034001724342423>");
+               
             DateTime dateTime = DateTime.Parse(date);
             string day = dateTime.ToString("ddd");
 
-            //Time to add some option to the embed(Like Color & Title)
-            //embed.WithColor(new Discord.Color(0, 255, 0));
-           // embed.Title = "Raid Test";
-             if (raid == "GoS")
+            
+            if (raid == "gos")
             {
-                var filename = "Galaxy.jpg";
-
-                //Lets use an embed for this one!
-                var embed = new EmbedBuilder().AddField("Garden of Salvation", "Test")
+                if(day == "Sun")
                 {
-                    
-                    ImageUrl = $"attachment://{filename}"
-                }.Build();
-               // embed.AddField("Garden of Salvation", "Test").WithImageUrl("C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\bin\\Debug\\netcoreapp3.1\\Pics\\Galaxy.jpg")
-               //     .Build();
-                await Context.Channel.SendFileAsync(filename, embed: embed);
-                //await Context.Channel.SendFileAsync("C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\bin\\Debug\\netcoreapp3.1\\Pics\\696274.jpg", "Crown of Sorrows");
-               // await ReplyAsync(day);
-            }
-           
+                    var filename = "gos_Sun.png";
 
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Mon")
+                {
+                    var filename = "gos_Mon.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Tue")
+                {
+                    var filename = "gos_Tue.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Wed")
+                {
+                    var filename = "gos_Wed.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Thu")
+                {
+                    var filename = "gos_Thur.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Fri")
+                {
+                    var filename = "gos_Fri.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " +"\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);               
+
+                    await SentEmbed.AddReactionsAsync(myReactions);                  
+                }
+
+                if(day == "Sat")
+                {
+                    var filename = "gos_Sat.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+            }
+
+            if (raid == "gosdivinity")
+            {
+                if (day == "Sun")
+                {
+                    var filename = "gos_Sun.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation - Divinty Run",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Mon")
+                {
+                    var filename = "gos_Mon.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation - Divinty Run",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Tue")
+                {
+                    var filename = "gos_Tue.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation - Divinty Run",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Wed")
+                {
+                    var filename = "gos_Wed.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation - Divinty Run",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Thu")
+                {
+                    var filename = "gos_Thur.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation - Divinty Run",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Fri")
+                {
+                    var filename = "gos_Fri.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation - Divinty Run",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Sat")
+                {
+                    var filename = "gos_Sat.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Garden of Salvation - Divinty Run",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}",
+                        //FooterText = "React Below"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+            }
+
+            if (raid == "dsc")
+            {
+                if(day == "Sun")
+                {
+                    var filename = "dsc_Sun.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Mon")
+                {
+                    var filename = "dsc_Mon.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Tue")
+                {
+                    var filename = "dsc_Tue.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Wed")
+                {
+                    var filename = "dsc_Wed.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Thu")
+                {
+                    var filename = "dsc_Thur.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Fri")
+                {
+                    var filename = "dsc_Fri.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if(day == "Sat")
+                {
+                    var filename = "dsc_Sat.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+            }
         }        
         
     }
