@@ -166,7 +166,7 @@ namespace RaidBotBeta.Modules
 
                     await SentEmbed.AddReactionsAsync(myReactions);
 
-                    
+                   
                 }
 
                 if(day == "Mon")

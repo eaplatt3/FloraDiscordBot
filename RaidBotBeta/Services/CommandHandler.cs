@@ -73,6 +73,8 @@ namespace RaidBotBeta.Services
 
             //Excute command if one is found that matches
             await _commands.ExecuteAsync(context, argPos, _services);
+
+            await message.DeleteAsync();
         }
 
         public async Task CommandExecuteAsync(Optional<CommandInfo> command, ICommandContext context, IResult result)
