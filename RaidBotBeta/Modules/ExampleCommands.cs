@@ -158,13 +158,15 @@ namespace RaidBotBeta.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                       
 
                     }.Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
                     await SentEmbed.AddReactionsAsync(myReactions);
+
+                    
                 }
 
                 if(day == "Mon")
@@ -516,6 +518,372 @@ namespace RaidBotBeta.Modules
                     var embed = new EmbedBuilder()
                     {
                         Title = "Deep Stone Crypt",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+            }
+
+            if (raid == "lw")
+            {
+                if (day == "Sun")
+                {
+                    var filename = "lw_Sun.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Mon")
+                {
+                    var filename = "lw_Mon.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Tue")
+                {
+                    var filename = "lw_Tue.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Wed")
+                {
+                    var filename = "lw_Wed.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Thu")
+                {
+                    var filename = "lw_Thur.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Fri")
+                {
+                    var filename = "lw_Fri.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Sat")
+                {
+                    var filename = "lw_Sat.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+            }
+
+            if (raid == "lwriven")
+            {
+                if (day == "Sun")
+                {
+                    var filename = "lw_Sun.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish - Queens Walk",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Mon")
+                {
+                    var filename = "lw_Mon.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish - Queens Walk",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Tue")
+                {
+                    var filename = "lw_Tue.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish - Queens Walk",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Wed")
+                {
+                    var filename = "lw_Wed.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish - Queens Walk",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Thu")
+                {
+                    var filename = "lw_Thur.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish - Queens Walk",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Fri")
+                {
+                    var filename = "lw_Fri.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish - Queens Walk",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Sat")
+                {
+                    var filename = "lw_Sat.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Last Wish - Queens Walk",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+            }
+
+            if (raid == "vog")
+            {
+                if (day == "Sun")
+                {
+                    var filename = "vog_Sun.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Vault of Glass",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Mon")
+                {
+                    var filename = "vog_Mon.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Vault of Glass",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Tue")
+                {
+                    var filename = "vog_Tue.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Vault of Glass",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Wed")
+                {
+                    var filename = "vog_Wed.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Vault of Glass",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Thu")
+                {
+                    var filename = "vog_Thur.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Vault of Glass",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Fri")
+                {
+                    var filename = "vog_Fri.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Vault of Glass",
+                        Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
+                        ImageUrl = $"attachment://{filename}"
+
+                    }.Build();
+
+                    SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
+
+                    await SentEmbed.AddReactionsAsync(myReactions);
+                }
+
+                if (day == "Sat")
+                {
+                    var filename = "vog_Sat.png";
+
+                    var embed = new EmbedBuilder()
+                    {
+                        Title = "Vault of Glass",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
