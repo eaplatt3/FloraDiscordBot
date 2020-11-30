@@ -19,6 +19,7 @@ namespace RaidBotBeta.Services
         private readonly DiscordSocketClient _client;
         private readonly IServiceProvider _services;
 
+       
         public CommandHandler(IServiceProvider services)
         {
             //Juice up the fields with these services
@@ -74,15 +75,17 @@ namespace RaidBotBeta.Services
             //Excute command if one is found that matches
             await _commands.ExecuteAsync(context, argPos, _services);
 
+            //Deletes Command After Processed
             await message.DeleteAsync();
         }
 
         public async Task CommandExecuteAsync(Optional<CommandInfo> command, ICommandContext context, IResult result)
         {
+            
             //If a command isn't found, log that info to the console and exit this method
             if (!command.IsSpecified)
             {
-                System.Console.WriteLine($"Command failed to execute for [] <-> []!");
+                System.Console.WriteLine($"Command failed to execute!");
                 return;
             }
 
