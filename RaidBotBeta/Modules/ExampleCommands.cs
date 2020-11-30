@@ -17,15 +17,7 @@ namespace RaidBotBeta.Modules
     //To them, we must inherit ModuleBase
     public class ExampleCommands : ModuleBase
     {
-        async Task MessageDelete(SocketMessage s)
-        {
-            var msg = s as SocketUserMessage;
-            if (msg == null || !msg.Content.StartsWith("!") || msg.Author.IsBot)
-                return;
-            if (msg.Channel is SocketGuildChannel guildChannel)
-                await Context.Message.DeleteAsync();
-        }
-
+       
         [Command("hello")]
         public async Task HelloCommand()
         {
@@ -178,7 +170,7 @@ namespace RaidBotBeta.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                        //Footer = "React Below",
 
                     }.Build();
 
