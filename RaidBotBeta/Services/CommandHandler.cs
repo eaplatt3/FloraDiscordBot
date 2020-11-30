@@ -81,18 +81,19 @@ namespace RaidBotBeta.Services
 
         public async Task CommandExecuteAsync(Optional<CommandInfo> command, ICommandContext context, IResult result)
         {
-            
+            var user = context.User;
+
             //If a command isn't found, log that info to the console and exit this method
             if (!command.IsSpecified)
             {
-                System.Console.WriteLine($"Command failed to execute!");
+                System.Console.WriteLine($"Command failed to execute for [{user.Username}]!");
                 return;
             }
 
             //Log success to the console and exit this method
             if (result.IsSuccess)
             {
-                System.Console.WriteLine($"Command [] excuted for -> []");
+                System.Console.WriteLine($"Command excuted for -> [{user.Username}]");
                 return;
             }
 
