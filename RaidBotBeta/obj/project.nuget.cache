@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PAkKR7kC7dsih4E5enpGq/BCZRshAhA6EDW32p6vsSpXVD8xrowMg0IOWp6TRAnpMifFZQ6cvVlOifZ/tEqYpg==",
+  "dgSpecHash": "ghg1FW0BsMYFSH9IA9AwXMPeg9b/YiEX9Es4qNFxdaYbAXEAnN2+cbgeZ5u4Y5ZKLsYeePjH2vbnR3AqT+pKuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\RaidBotBeta.csproj",
+  "projectFilePath": "C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\FloraDiscordBot.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EPlatt\\.nuget\\packages\\discord.net\\2.2.0\\discord.net.2.2.0.nupkg.sha512",
     "C:\\Users\\EPlatt\\.nuget\\packages\\discord.net.commands\\2.2.0\\discord.net.commands.2.2.0.nupkg.sha512",

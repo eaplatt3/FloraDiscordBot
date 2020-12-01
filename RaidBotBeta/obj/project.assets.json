@@ -1828,9 +1828,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\RaidBotBeta.csproj",
-      "projectName": "RaidBotBeta",
-      "projectPath": "C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\RaidBotBeta.csproj",
+      "projectUniqueName": "C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\FloraDiscordBot.csproj",
+      "projectName": "FloraDiscordBot",
+      "projectPath": "C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\FloraDiscordBot.csproj",
       "packagesPath": "C:\\Users\\EPlatt\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\EPlatt\\source\\repos\\RaidBotBeta\\RaidBotBeta\\obj\\",
       "projectStyle": "PackageReference",
